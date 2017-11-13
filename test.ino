@@ -1,8 +1,8 @@
-const int middle_inner = 1;
-const int middle_outer = 2;
-const int diagonal_left = 3;
-const int diagonal_right = 4;
-const int button = 5;
+const int middle_inner = 13;
+const int middle_outer = 12;
+const int diagonal_left = 11;
+const int diagonal_right = 10;
+const int button = 8;
 
 int buttonState = 0;
 int randomNum = 0;

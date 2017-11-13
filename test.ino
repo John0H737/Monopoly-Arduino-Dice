@@ -8,15 +8,15 @@ int buttonState = 0;
 int randomNum = 0;
 
 void setup() {
-  pinMode(middle_inner, OUTPUT)
-  pinMode(middle_outer, OUTPUT)
-  pinMode(diagonal_left, OUTPUT)
-  pinMode(diagonal_right, OUTPUT)
-  pinMode(button, INPUT)
+  pinMode(middle_inner, OUTPUT);
+  pinMode(middle_outer, OUTPUT);
+  pinMode(diagonal_left, OUTPUT);
+  pinMode(diagonal_right, OUTPUT);
+  pinMode(button, INPUT);
 }
 
 void loop() {
-  buttonState = digitalRead(button)
+  buttonState = digitalRead(button);
   if (buttonState == HIGH) {
     randomNum = random(1, 7);
     digitalWrite(randomNum, HIGH);

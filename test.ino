@@ -19,14 +19,7 @@ void loop() {
   buttonState = digitalRead(button)
   if (buttonState == HIGH) {
     randomNum = random(1, 7);
-    if (randomNum == 1) {}
-    else if (randomNum == 2) {}
-    else if (randomNum == 3) {}
-    else if (randomNum == 4) {}
-    else if (randomNum == 5) {}
-    else if (randomNum == 6) {}
-  } else {
-    // do other stuff
-  }
-
+    digitalWrite(randomNum, HIGH);
+    delay(5000);
+    digitalWrite(randomNum, LOW);
 }

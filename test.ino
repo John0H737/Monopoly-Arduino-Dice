@@ -16,55 +16,57 @@ void setup() {
 }
 
 void loop() {
-  int delay_before = 100;
-  int delay_after = 100;
   buttonState = digitalRead(button);
   if (buttonState == HIGH) {
     for (int x = 1; x < 20; x = x + 1){
-      randomNum = random(1, 7);
-      if (randomNum == 1) {
-        delay(delay_before);
-        digitalWrite(middle_inner, HIGH); 
-        delay(delay_after);
-        digitalWrite(middle_inner, LOW); 
-      } else if (randomNum == 2) {
-        delay(delay_before);
-        digitalWrite(diagonal_left, HIGH); 
-        delay(delay_after);
-        digitalWrite(diagonal_left, LOW); 
-      } else if (randomNum == 3) {
-        delay(delay_before);
-        digitalWrite(diagonal_left, HIGH); 
-        digitalWrite(middle_inner, HIGH);
-        delay(delay_after);
-        digitalWrite(diagonal_left, LOW); 
-        digitalWrite(middle_inner, LOW);
-      } else if (randomNum == 4) {
-        delay(delay_before);
-        digitalWrite(diagonal_left, HIGH);
-        digitalWrite(diagonal_right, HIGH);  
-        delay(delay_after);
-        digitalWrite(diagonal_left, LOW);
-        digitalWrite(diagonal_right, LOW);  
-      } else if (randomNum == 5){
-        delay(delay_before);
-        digitalWrite(diagonal_left, HIGH);
-        digitalWrite(diagonal_right, HIGH);  
-        digitalWrite(middle_inner, HIGH);
-        delay(delay_after);
-        digitalWrite(diagonal_left, LOW);
-        digitalWrite(diagonal_right, LOW);  
-        digitalWrite(middle_inner, LOW);
-      } else if (randomNum == 6) {
-        delay(delay_before);
-        digitalWrite(diagonal_left, HIGH);
-        digitalWrite(diagonal_right, HIGH);  
-        digitalWrite(middle_outer, HIGH);
-        delay(delay_after);
-        digitalWrite(diagonal_left, LOW);
-        digitalWrite(diagonal_right, LOW);  
-        digitalWrite(middle_outer, LOW);
-      }
+      RandomNumber(500, 500);
     }
+  }
+}
+
+void RandomNumber(int delay_before, int delay_after) {
+  randomNum = random(1, 7);
+  if (randomNum == 1) {
+    delay(delay_before);
+    digitalWrite(middle_inner, HIGH); 
+    delay(delay_after);
+    digitalWrite(middle_inner, LOW); 
+  } else if (randomNum == 2) {
+    delay(delay_before);
+    digitalWrite(diagonal_left, HIGH); 
+    delay(delay_after);
+    digitalWrite(diagonal_left, LOW); 
+  } else if (randomNum == 3) {
+    delay(delay_before);
+    digitalWrite(diagonal_left, HIGH); 
+    digitalWrite(middle_inner, HIGH);
+    delay(delay_after);
+    digitalWrite(diagonal_left, LOW); 
+    digitalWrite(middle_inner, LOW);
+  } else if (randomNum == 4) {
+    delay(delay_before);
+    digitalWrite(diagonal_left, HIGH);
+    digitalWrite(diagonal_right, HIGH);  
+    delay(delay_after);
+    digitalWrite(diagonal_left, LOW);
+    digitalWrite(diagonal_right, LOW);  
+  } else if (randomNum == 5){
+    delay(delay_before);
+    digitalWrite(diagonal_left, HIGH);
+    digitalWrite(diagonal_right, HIGH);  
+    digitalWrite(middle_inner, HIGH);
+    delay(delay_after);
+    digitalWrite(diagonal_left, LOW);
+    digitalWrite(diagonal_right, LOW);  
+    digitalWrite(middle_inner, LOW);
+  } else if (randomNum == 6) {
+    delay(delay_before);
+    digitalWrite(diagonal_left, HIGH);
+    digitalWrite(diagonal_right, HIGH);  
+    digitalWrite(middle_outer, HIGH);
+    delay(delay_after);
+    digitalWrite(diagonal_left, LOW);
+    digitalWrite(diagonal_right, LOW);  
+    digitalWrite(middle_outer, LOW);
   }
 }

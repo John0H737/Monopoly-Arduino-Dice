@@ -24,24 +24,23 @@ void loop() {
     digitalWrite(middle_outer, LOW);
     digitalWrite(diagonal_left, LOW);
     digitalWrite(diagonal_right, LOW);
-    for (int x = 50; x < 1000; x = x * 1.5){
+    for (int x = 50; x < 1000; x = x * 1.5) {  //This code programs the dice roll and slowly reduces the speed that the LEDs blink, thus creating a roll effect
       delay(x);
       RandomNumber(x, x);
-      //This code programs the dice roll and slowly reduces the speed that the LEDs blink, thus creating a slowing roll effect
-      //Problem, after the blinkling slows, the final result comes up, but times out in less then a second
       tone(buzzer, 1000);
       delay(100);
       noTone(buzzer);
       delay(x);
+      
       digitalWrite(middle_inner, LOW);
       digitalWrite(middle_outer, LOW);
       digitalWrite(diagonal_left, LOW);
       digitalWrite(diagonal_right, LOW);
     }
      RandomNumber(1000, 0);
-      tone(buzzer, 1000);
-      delay(1000);
-      noTone(buzzer);
+     tone(buzzer, 1000);
+     delay(1000);
+     noTone(buzzer);
   }
 }
   

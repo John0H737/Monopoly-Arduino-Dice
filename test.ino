@@ -1,6 +1,6 @@
 const int diagonal_left = 13;
-const int middle_outer = 12;
-const int middle_inner = 11;
+const int middle_inner = 12;
+const int middle_outer = 11;
 const int diagonal_right = 10;
 const int button = 8;
 
@@ -18,55 +18,54 @@ void setup() {
 void loop() {
   buttonState = digitalRead(button);
   if (buttonState == HIGH) {
-    for (int x = 1; x < 20; x = x + 1){
-      RandomNumber(500, 500);
+    digitalWrite(middle_inner, LOW);
+    digitalWrite(middle_outer, LOW);
+    digitalWrite(diagonal_left, LOW);
+    digitalWrite(diagonal_right, LOW);
+    for (int x = 50; x < 1000; x = x * 1.5){
+      RandomNumber(x, x);
+      //This code programs the dice roll and slowly reduces the speed that the LEDs blink, thus creating a slowing roll effect
+      //Problem, after the blinkling slows, the final result comes up, but times out in less then a second
+        digitalWrite(middle_inner, LOW);
+        digitalWrite(middle_outer, LOW);
+        digitalWrite(diagonal_left, LOW);
+        digitalWrite(diagonal_right, LOW);
     }
+     RandomNumber(1000, 0);
   }
 }
-
+  
 void RandomNumber(int delay_before, int delay_after) {
   randomNum = random(1, 7);
   if (randomNum == 1) {
     delay(delay_before);
     digitalWrite(middle_inner, HIGH); 
     delay(delay_after);
-    digitalWrite(middle_inner, LOW); 
   } else if (randomNum == 2) {
     delay(delay_before);
     digitalWrite(diagonal_left, HIGH); 
     delay(delay_after);
-    digitalWrite(diagonal_left, LOW); 
   } else if (randomNum == 3) {
     delay(delay_before);
     digitalWrite(diagonal_left, HIGH); 
     digitalWrite(middle_inner, HIGH);
     delay(delay_after);
-    digitalWrite(diagonal_left, LOW); 
-    digitalWrite(middle_inner, LOW);
   } else if (randomNum == 4) {
     delay(delay_before);
     digitalWrite(diagonal_left, HIGH);
     digitalWrite(diagonal_right, HIGH);  
     delay(delay_after);
-    digitalWrite(diagonal_left, LOW);
-    digitalWrite(diagonal_right, LOW);  
   } else if (randomNum == 5){
     delay(delay_before);
     digitalWrite(diagonal_left, HIGH);
     digitalWrite(diagonal_right, HIGH);  
     digitalWrite(middle_inner, HIGH);
     delay(delay_after);
-    digitalWrite(diagonal_left, LOW);
-    digitalWrite(diagonal_right, LOW);  
-    digitalWrite(middle_inner, LOW);
   } else if (randomNum == 6) {
     delay(delay_before);
     digitalWrite(diagonal_left, HIGH);
     digitalWrite(diagonal_right, HIGH);  
     digitalWrite(middle_outer, HIGH);
     delay(delay_after);
-    digitalWrite(diagonal_left, LOW);
-    digitalWrite(diagonal_right, LOW);  
-    digitalWrite(middle_outer, LOW);
   }
 }

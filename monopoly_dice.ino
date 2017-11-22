@@ -26,7 +26,7 @@ void loop() {
     digitalWrite(diagonal_right, LOW);
     for (int x = 50; x < 1000; x = x * 1.5) {  //This code programs the dice roll and slowly reduces the speed that the LEDs blink, thus creating a roll effect
       delay(x);
-      RandomNumber(x, x);
+      RandomNumber();
       tone(buzzer, 1000);
       delay(100);
       noTone(buzzer);
@@ -37,14 +37,14 @@ void loop() {
       digitalWrite(diagonal_left, LOW);
       digitalWrite(diagonal_right, LOW);
     }
-     RandomNumber(1000, 0);
-     tone(buzzer, 1000);
-     delay(1000);
-     noTone(buzzer);
+    RandomNumber();
+    tone(buzzer, 1000);
+    delay(1000);
+    noTone(buzzer);
   }
 }
   
-void RandomNumber(int delay_before, int delay_after) {
+void RandomNumber() {
   randomNum = random(1, 7);
   if (randomNum == 1) {
     digitalWrite(middle_inner, HIGH); 

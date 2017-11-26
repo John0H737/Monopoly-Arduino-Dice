@@ -20,10 +20,7 @@ void setup() {
 void loop() {
   buttonState = digitalRead(button);
   if (buttonState == HIGH) {
-    digitalWrite(middle_inner, LOW);
-    digitalWrite(middle_outer, LOW);
-    digitalWrite(diagonal_left, LOW);
-    digitalWrite(diagonal_right, LOW);
+    LightsOff()
     for (int x = 50; x < 1000; x = x * 1.5) {  //This code programs the dice roll and slowly reduces the speed that the LEDs blink, thus creating a roll effect
       delay(x);
       RandomNumber(x, x);
@@ -31,11 +28,7 @@ void loop() {
       delay(100);
       noTone(buzzer);
       delay(x);
-      
-      digitalWrite(middle_inner, LOW);
-      digitalWrite(middle_outer, LOW);
-      digitalWrite(diagonal_left, LOW);
-      digitalWrite(diagonal_right, LOW);
+      LightsOff()
     }
      RandomNumber(1000, 0);
      tone(buzzer, 1000);
@@ -65,4 +58,11 @@ void RandomNumber(int delay_before, int delay_after) {
     digitalWrite(diagonal_right, HIGH);  
     digitalWrite(middle_outer, HIGH);
   }
+}
+
+void LightsOff() {
+  digitalWrite(middle_inner, LOW);
+  digitalWrite(middle_outer, LOW);
+  digitalWrite(diagonal_left, LOW);
+  digitalWrite(diagonal_right, LOW);
 }
